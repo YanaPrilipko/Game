@@ -1,7 +1,6 @@
 ﻿
 class SnakeGame
 {
-
     private static readonly Position Origin = new Position(0, 0);
 
     private Direction _currentDirection;
@@ -21,35 +20,14 @@ class SnakeGame
 
     public void OnKeyPress(ConsoleKey key)
     {
-        Direction newDirection;
-
-        switch (key)
+        _nextDirection = key switch
         {
-            case ConsoleKey.UpArrow:
-                newDirection = Direction.Up;
-                break;
-
-            case ConsoleKey.LeftArrow:
-                newDirection = Direction.Left;
-                break;
-
-            case ConsoleKey.DownArrow:
-                newDirection = Direction.Down;
-                break;
-
-            case ConsoleKey.RightArrow:
-                newDirection = Direction.Right;
-                break;
-
-            default:
-                return;
-        }
-
-        if (newDirection == OppositeDirectionTo(_currentDirection))
-        {
-            return;
-        }
-        _nextDirection = newDirection;
+            ConsoleKey.UpArrow when _currentDirection != Direction.Down => Direction.Up,
+            ConsoleKey.LeftArrow when _currentDirection != Direction.Right => Direction.Left,
+            ConsoleKey.DownArrow when _currentDirection != Direction.Up => Direction.Down,
+            ConsoleKey.RightArrow when _currentDirection != Direction.Left => Direction.Right,
+            _ => _nextDirection
+        };
     }
 
     public void OnGameTick()
@@ -72,18 +50,6 @@ class SnakeGame
         _snake.Render();
         _mouse.Render();
         Console.SetCursorPosition(0, 0);
-    }
-
-    private static Direction OppositeDirectionTo(Direction direction)
-    {
-        switch (direction)
-        {
-            case Direction.Up: return Direction.Down;
-            case Direction.Left: return Direction.Right;
-            case Direction.Right: return Direction.Left;
-            case Direction.Down: return Direction.Up;
-            default: throw new ArgumentOutOfRangeException();
-        }
     }
 
     private static Mouse CreateMouse()

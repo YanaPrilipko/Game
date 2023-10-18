@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "HBdLo3UtKeL+QRjLS0U+1Abrs06zKKZdvnIWzcLLZMIj10XU0RAOk5uG7ny7qAIaUw3mUstmV3NWG+WuvKQTaw==",
+  "dgSpecHash": "1kz5RSyYUKA9loy6wWcXArWdMGbtEC1qtS49oNJxpmqJPkeBmar5/8vvsyMb2tz7KAvLK0203FFYZDmjmrmzvg==",
   "success": true,
-  "projectFilePath": "D:\\Рoзробка С#\\SnakeGame\\SnakeGame\\SnakeGame\\SnakeGame.csproj",
+  "projectFilePath": "D:\\Рoзробка С#\\SnakeGame\\Game\\SnakeGame\\SnakeGame\\SnakeGame.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

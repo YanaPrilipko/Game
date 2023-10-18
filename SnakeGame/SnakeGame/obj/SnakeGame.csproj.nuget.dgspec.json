@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Рoзробка С#\\SnakeGame\\SnakeGame\\SnakeGame\\SnakeGame.csproj": {}
+    "D:\\Рoзробка С#\\SnakeGame\\Game\\SnakeGame\\SnakeGame\\SnakeGame.csproj": {}
   },
   "projects": {
-    "D:\\Рoзробка С#\\SnakeGame\\SnakeGame\\SnakeGame\\SnakeGame.csproj": {
+    "D:\\Рoзробка С#\\SnakeGame\\Game\\SnakeGame\\SnakeGame\\SnakeGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Рoзробка С#\\SnakeGame\\SnakeGame\\SnakeGame\\SnakeGame.csproj",
+        "projectUniqueName": "D:\\Рoзробка С#\\SnakeGame\\Game\\SnakeGame\\SnakeGame\\SnakeGame.csproj",
         "projectName": "SnakeGame",
-        "projectPath": "D:\\Рoзробка С#\\SnakeGame\\SnakeGame\\SnakeGame\\SnakeGame.csproj",
+        "projectPath": "D:\\Рoзробка С#\\SnakeGame\\Game\\SnakeGame\\SnakeGame\\SnakeGame.csproj",
         "packagesPath": "C:\\Users\\Яна\\.nuget\\packages\\",
-        "outputPath": "D:\\Рoзробка С#\\SnakeGame\\SnakeGame\\SnakeGame\\obj\\",
+        "outputPath": "D:\\Рoзробка С#\\SnakeGame\\Game\\SnakeGame\\SnakeGame\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Яна\\AppData\\Roaming\\NuGet\\NuGet.Config",

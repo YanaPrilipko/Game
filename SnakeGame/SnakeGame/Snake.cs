@@ -1,13 +1,14 @@
-﻿
-class Snake
+﻿class Snake
 {
     private List<Position> _body;
-    private int _growthSpurtsRemaining;
 
     public Snake(Position spawnLocation, int initialSize = 1)
     {
         _body = new List<Position> { spawnLocation };
-        _growthSpurtsRemaining = Math.Max(0, initialSize - 1);
+        for (int i = 1; i < initialSize; i++)
+        {
+            _body.Add(new Position(spawnLocation.Left - i, spawnLocation.Top)); 
+        }
         Dead = false;
     }
 
@@ -19,29 +20,14 @@ class Snake
     {
         if (Dead) throw new InvalidOperationException();
 
-        Position newHead;
-
-        switch (direction)
+        Position newHead = direction switch
         {
-            case Direction.Up:
-                newHead = Head.DownBy(-1);
-                break;
-
-            case Direction.Left:
-                newHead = Head.RightBy(-1);
-                break;
-
-            case Direction.Down:
-                newHead = Head.DownBy(1);
-                break;
-
-            case Direction.Right:
-                newHead = Head.RightBy(1);
-                break;
-
-            default:
-                throw new ArgumentOutOfRangeException();
-        }
+            Direction.Up => Head.DownBy(-1),
+            Direction.Left => Head.RightBy(-1),
+            Direction.Down => Head.DownBy(1),
+            Direction.Right => Head.RightBy(1),
+            _ => throw new ArgumentOutOfRangeException()
+        };
 
         if (_body.Contains(newHead) || !PositionIsValid(newHead))
         {
@@ -50,31 +36,22 @@ class Snake
         }
 
         _body.Insert(0, newHead);
-
-        if (_growthSpurtsRemaining > 0)
-        {
-            _growthSpurtsRemaining--;
-        }
-        else
-        {
-            _body.RemoveAt(_body.Count - 1);
-        }
+        _body.RemoveAt(_body.Count - 1); 
     }
 
     public void Grow()
     {
         if (Dead) throw new InvalidOperationException();
-
-        _growthSpurtsRemaining++;
+        _body.Add(_body.Last()); 
     }
 
     public void Render()
     {
-        Console.SetCursorPosition(Head.Left, Head.Top);
+        Console.SetCursorPosition(Math.Max(0, Head.Left), Math.Max(0, Head.Top));
 
         foreach (var position in Body)
         {
-            Console.SetCursorPosition(position.Left, position.Top);
+            Console.SetCursorPosition(Math.Max(0, position.Left), Math.Max(0, position.Top));
             Console.Write("■");
         }
     }
