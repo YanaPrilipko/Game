@@ -1,10 +1,10 @@
 ﻿
-class Program
+public class Program
 {
     public static void Main()
     {
         var tickRate = TimeSpan.FromMilliseconds(100);
-        var snakeGame = new SnakeGame();
+        var snakeGame = new SnakeGames();
         var cts = new CancellationTokenSource();
         var keyPress = Console.ReadKey(intercept: true);
 
@@ -12,7 +12,15 @@ class Program
         {
             if (keyPress.Key != 0)
             {
-                snakeGame.OnKeyPress(keyPress.Key);
+                if (keyPress.Key == ConsoleKey.S) 
+                {
+                    snakeGame.SaveGame("saved_game.json");
+                }
+  
+                else
+                {
+                    snakeGame.OnKeyPress(keyPress.Key);
+                }
             }
 
             snakeGame.OnGameTick();
@@ -27,6 +35,7 @@ class Program
             {
                 keyPress = new ConsoleKeyInfo();
             }
+
         } while (!snakeGame.GameOver);
 
         for (var i = 0; i < 3; i++)
@@ -39,7 +48,4 @@ class Program
 
         cts.Cancel();
     }
-
-
 }
-

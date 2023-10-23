@@ -1,4 +1,4 @@
-﻿class Mouse
+﻿public class Mouse
 {
     public Mouse(Position position)
     {

@@ -1,4 +1,4 @@
-﻿class Snake
+﻿public class Snake
 {
     private List<Position> _body;
 
@@ -12,7 +12,7 @@
         Dead = false;
     }
 
-    public bool Dead { get; private set; }
+    public bool Dead { get;  set; }
     public Position Head => _body.First();
     private IEnumerable<Position> Body => _body.Skip(1);
 

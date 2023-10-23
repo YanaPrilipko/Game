@@ -1,4 +1,4 @@
-﻿readonly struct Position
+﻿public readonly struct Position
 {
     public Position(int top, int left)
     {

@@ -1,5 +1,8 @@
 ﻿
-class SnakeGame
+using SnakeGame;
+using System.Text.Json;
+
+public class SnakeGames
 {
     private static readonly Position Origin = new Position(0, 0);
 
@@ -8,7 +11,7 @@ class SnakeGame
     private Snake _snake;
     private Mouse _mouse;
 
-    public SnakeGame()
+    public SnakeGames()
     {
         _snake = new Snake(Origin, initialSize: 5);
         _mouse = CreateMouse();
@@ -65,4 +68,18 @@ class SnakeGame
 
         return mouse;
     }
+
+
+    public void SaveGame(string fileName)
+    {
+        var gameState = new GameState
+        {
+            Snake = _snake,
+            Mouse = _mouse
+        };
+
+        string json = JsonSerializer.Serialize(gameState);
+        File.WriteAllText(fileName, json);
+    }
+
 }
